@@ -1,0 +1,14 @@
+
+/*
+ADD reg, a, b
+AND reg, a, b
+JMP(p/z/n) addr
+JSR label
+LD reg, label
+LDR reg, a, offset
+NOT reg, a
+RET // R7 reg
+STRINGZ "value"
+SYSCALL
+HALT
+*/

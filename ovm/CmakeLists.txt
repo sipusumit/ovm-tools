@@ -1,0 +1,32 @@
+cmake_minimum_required(VERSION 3.8)
+
+project(ovm VERSION 0.0.1)
+
+set(CMAKE_CXX_STANDARD 20)
+
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
+set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/lib)
+
+
+# Macros =============================================
+add_compile_definitions(VERSION="${CMAKE_PROJECT_VERSION}")
+
+
+# Main Application /===================================
+add_executable(ovm src/main.cpp src/utils.cpp)
+
+target_include_directories(ovm PRIVATE include)
+
+
+# Install ======================================
+install(TARGETS ovm 
+RUNTIME DESTINATION bin 
+LIBRARY DESTINATION lib 
+ARCHIVE DESTINATION lib
+)
+# CPack ========================================
+
+set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+
+include(CPack)
